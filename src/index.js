@@ -1,5 +1,6 @@
 require('./db/mongoose.js')
 const express = require('express')
+const cors = require('cors')
 const userRouter = require('./routers/user')
 const preBudgetRouter = require('./routers/pre_budget')
 const preBudgetRequisitionRouter = require('./routers/pre_budget_requisition')
@@ -8,6 +9,7 @@ const companyRouter = require('./routers/company')
 const app = express()
 const port = process.env.PORT
 
+app.use(cors())
 app.use(express.json())
 app.use(userRouter)
 app.use(preBudgetRouter)
